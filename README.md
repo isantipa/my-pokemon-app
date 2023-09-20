@@ -1,70 +1,102 @@
-# Getting Started with Create React App
+# Nom del Projecte
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+my-pokemon-app, prova técnica per isKra.
 
-## Available Scripts
+## Solució Implementada
 
-In the project directory, you can run:
+La solució implementada es basa en una aplicació React que mostra una llista de pokémons consumint la API pública de PokeAPI.
 
-### `npm start`
+A continuació, describirem alguns dels elements clau del projecte:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Tecnologies Utilitzades
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **React**: Librería per construir l'interfície d'usuari.
+- **Axios**: Utilitzat per realitzar crides API de manera eficient.
+- **React Router Dom**: Librería per gestionar les rutes de l'aplicació.
 
-### `npm test`
+### Components Principals
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. **App.jsx**
 
-### `npm run build`
+   - Estableix les rutes principals del projecte, incloent la pàgina d'inici i la pàgina de detalls del pokémon.
+   - Implementa un `ViewModeProvider` que permet canviar entre les vistes de llista i graella.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. **Home.jsx**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   - Conté la pàgina d'inici, que mostra una llista de pokémons junt amb un commutador de vista de llista/graella.
+   - Es podria haver establert tant el GridViewToggle com el PokemonList a Home.jsx, però al separar-los en components fa que l'aplicació pugui ser més modular.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. **PokemonList.jsx**
 
-### `npm run eject`
+   - Fa servir `axios` per a fer una crida a la API i obtenir una llista de pokémons. En aquest cas, he utilitzat Axios en lloc de Fetch, ja que inicialment ja implementa un gestor d'errors i sol ser més llegible.
+   - Mostra els pokémons en una llista o una graella, depenent de l'estat actual del mode de vista.
+   - S'encarrega de pintar 20 Pokémon i 5 pàginas, amb l'ajuda del useEffect, monitoritza l'estat per a poder-lo guardar i així tornar quan s'utilitza el botó de ReturnButton.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Context
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **ViewModeContext**
+  - Un context que proveeix un estat global per a controlar el mode de vista (llista o graella) a través de l'aplicació.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Pàgines
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. **PokemonPage.jsx**
 
-## Learn More
+   - Mostra els detalls d'un pokémon específic, que s'obtenen cridant a la API de PokeAPI.
+     -Torno a fer servir un altre component, en aquest cas PokemonCard.jsx per fer més modular el projecte en cas de voler afegir altres coses.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Funcionalitats Addicionals
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. **GridViewToggle**
 
-### Code Splitting
+   - Un commutador que permet canviar entre la vista de llista i la vista de graella en la pàgina d'inici.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+2. **ReturnButton**
 
-### Analyzing the Bundle Size
+   - Un botó que permet tornar a la pàgina anterior, implementat utilitzant `useNavigate` de `react-router-dom`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+3. **Pagination**
 
-### Making a Progressive Web App
+   - Un parell de botóns que permeten navegar entre les diferents paginacións del llistat de pokemon, en aquest cas 5 pags.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Gestió d'Estils
 
-### Advanced Configuration
+- He utilitzat CSS per a estilizar els components i assegurar una presentació visual agradable i moderna.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Maneig d'Errors
 
-### Deployment
+- He implementat maneig d'errors bàsic a les crides API per a garantir que l'aplicació no falli en cas d'errors de xarxa.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Com executar el projecte
 
-### `npm run build` fails to minify
+Per a executar el projecte en el teu entorn local, segueix els passos a continuació:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Prerequisits
+
+- Node.js (versió 14 o superior)
+- npm (versió 6 o superior)
+
+### Instruccions
+
+1. **Clona el repositori**
+
+   Obrir una terminal o un terminal de comandaments i executar la següent comanda per a clonar el repositori:
+
+   ```sh
+   git clone https://github.com/isantipa/my-pokemon-app
+
+   ```
+
+2. **Instala dependències**
+
+   Una vegada clonat el repositori, navega fins al directori del projecte i executa la següent comanda per a instal·lar totes les dependències necessàries:
+
+   cd my-pokemon-app
+   npm install
+
+3. **Inicia l'aplició**
+
+   Ara pots iniciar l'app amb la següent comanda:
+
+   npm start
+
+   L'app ara será accesible des del navegador a la la url indicada a la terminal (per norma http://localhost:3000/)

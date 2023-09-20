@@ -1,0 +1,205 @@
+@font-face {
+    font-family: 'ketchum';
+    src: url('../fonts/Ketchum.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'pokemonclass';
+    src: url('../fonts/pokemonclassic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+/* #region ==== HEADER STYLES ====*/
+.header {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(142, 205, 221);
+}
+
+.header h1 {
+    font-family: 'ketchum', sans-serif;
+    margin: 1rem;
+    color: rgb(67, 81, 160);
+    font-size: 2.5rem;
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.37);
+}
+
+.header .logo img {
+    width: 12rem;
+}
+/* #endregion ==== */
+
+/* #region ==== HOME STYLES ====*/
+.home-container .home-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 2rem;
+    background-color: rgb(34, 102, 141);
+}
+
+.home-container .home-header h1 {
+    font-size: 2rem;
+    color: rgb(3, 52, 111);
+    font-family: 'pokemonclass','Gill Sans', sans-serif;
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.239);
+    font-weight: 900;
+}
+
+.home-container .home-header button {
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.37);
+    color: rgb(47, 31, 17);
+    padding: 1rem 1rem;
+    background-color: white;
+    border: 3px solid black;
+    font-family: 'pokemonclass', sans-serif;
+    font-size: 12px;
+    transition: background-color 0.8s ease, color 1s ease;
+}
+
+.home-container .home-header button:hover {
+    color: white;
+    background-color: black;
+    border: 3px solid white;
+}
+
+.home-container ul {
+    text-transform: uppercase;
+    font-family: 'Gill Sans', sans-serif;
+    width: auto;
+    border: solid black 3px;
+    list-style-type: none;
+    text-align: center;
+    padding: 0 2rem;
+    margin: 2rem;
+    background-color: white;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.582);
+    font-family: 'pokemonclass', sans-serif;
+    font-size: 12px;
+}
+
+.home-container ul li {
+    margin: 0.6rem 0;
+    text-decoration: none;
+
+}
+
+.home-container ul li a {
+    text-decoration: none;
+    transition: background-color 0.8s ease, color 1s ease;
+    color: rgb(47, 31, 17);
+}
+
+.home-container ul li a:hover {
+    font-weight: bolder;
+    color: white;
+    background-color: rgb(22, 22, 22);
+    padding: 0.3rem 1rem;
+}
+
+.pagination-controls {
+    display: flex;
+    justify-content: center;
+    margin: 2rem;
+}
+
+.pagination-controls button {
+    margin: 0 0.5rem;
+    border: solid 3px black;
+    padding: 0 0.6rem;
+    color: black;
+    font-weight: bolder;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.37);
+    transition: background-color 0.8s ease, color 1s ease;
+}
+
+.pagination-controls button:hover {
+    color: white;
+    background-color: black;
+    border: white solid 3px;
+}
+
+.pagination-controls span {
+    font-family: 'pokemonclass', 'Impact', sans-serif;
+    color: rgb(3, 52, 111);
+    font-weight: 900;
+    margin: 0 0.5rem;
+}
+/* #endregion ==== */
+
+/* #region ==== GRIDVIEWTOGGLE STYLES ====*/
+.grid-view {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.grid-view li {
+    width: 50%; /* 2 columns for Phone */
+}
+  
+@media (min-width: 600px) {
+    .grid-view li {
+      width: 33.33%; /* 3 columns for Tablet */
+    }
+}
+  
+@media (min-width: 768px) {
+    .grid-view li {
+      width: 25%; /* 4 columns for PC */
+    }
+}
+/* #endregion ==== */
+
+/* #region ====  CARD STYLES ====*/
+.pokemon-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+  
+.card-container {
+    border: 3px solid black;
+    margin: 1rem;
+    padding: 0 1rem;
+    background-color: white;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.37);
+}
+
+.card-container h2 {
+    font-family: 'pokemonclass', 'Impact', sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.card-container img {
+    width: 200px;
+}
+
+.pokemon-container .return-button {
+    width: 50px;
+    height: 50px;
+    background-image: url('../images/retunr.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    cursor: pointer;
+}
+/* #endregion ==== */
+
+/* #region ==== FOOTER STYLES ====*/
+.footer-container {
+    background-color: rgb(34, 102, 141);
+    padding: 1rem 0;
+}
+
+.footer-container p {
+    margin: 0 2rem;
+    font-weight: bolder;
+    font-family: 'pokemonclass', Impact, sans-serif;
+    font-size: 0.7rem;
+}
+/* #endregion ==== */
